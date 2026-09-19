@@ -58,7 +58,7 @@ const config: Config = {
         { to: '/docs/architecture/overview', label: 'Architecture', position: 'left' },
         {
           href: 'https://ko-lab.vanshika.cc',
-          label: 'Ko-Lab App',
+          label: 'Ko-Lab',
           position: 'right',
         },
         {
@@ -91,7 +91,7 @@ const config: Config = {
         {
           title: 'More',
           items: [
-            { label: 'Ko-Lab App', href: 'https://ko-lab.vanshika.cc' },
+            { label: 'Ko-Lab', href: 'https://ko-lab.vanshika.cc' },
             { label: 'GitHub', href: 'https://github.com/VanshikaSabharwal/ko-lab' },
           ],
         },
