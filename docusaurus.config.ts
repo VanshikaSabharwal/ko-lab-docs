@@ -57,6 +57,11 @@ const config: Config = {
         { to: '/docs/features/overview', label: 'Features', position: 'left' },
         { to: '/docs/architecture/overview', label: 'Architecture', position: 'left' },
         {
+          href: 'https://ko-lab.vanshika.cc',
+          label: 'Ko-Lab App',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/VanshikaSabharwal/ko-lab',
           label: 'GitHub',
           position: 'right',
@@ -85,7 +90,10 @@ const config: Config = {
         },
         {
           title: 'More',
-          items: [{ label: 'GitHub', href: 'https://github.com/VanshikaSabharwal/ko-lab' }],
+          items: [
+            { label: 'Ko-Lab App', href: 'https://ko-lab.vanshika.cc' },
+            { label: 'GitHub', href: 'https://github.com/VanshikaSabharwal/ko-lab' },
+          ],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Ko-Lab.`,
