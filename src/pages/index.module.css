@@ -1,0 +1,281 @@
+/**
+ * Homepage styles.
+ *
+ * Every color is a token that flips with the theme — the app defaults to
+ * dark, and light-mode contrast is where these pages tend to break.
+ */
+
+/* ─── Hero ──────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0 4.5rem;
+  border-bottom: 1px solid var(--kl-border);
+  background: var(--ifm-background-color);
+}
+
+/* Soft brand wash behind the hero, in place of a flat color band. */
+.heroGlow {
+  position: absolute;
+  top: -55%;
+  left: 50%;
+  width: 1100px;
+  height: 1100px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(37, 99, 235, 0.16), transparent 58%),
+    radial-gradient(circle at 65% 45%, rgba(124, 58, 237, 0.14), transparent 60%);
+}
+
+[data-theme='dark'] .heroGlow {
+  background:
+    radial-gradient(circle at 35% 35%, rgba(59, 130, 246, 0.2), transparent 58%),
+    radial-gradient(circle at 65% 45%, rgba(139, 92, 246, 0.18), transparent 60%);
+}
+
+.heroInner {
+  position: relative;
+  max-width: 720px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--kl-border);
+  border-radius: 999px;
+  background: var(--kl-surface-soft);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0 0 1rem;
+  font-size: clamp(2.75rem, 7vw, 4.25rem);
+  font-weight: 750;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  background: linear-gradient(120deg, var(--ifm-color-primary), var(--kl-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  margin: 0 0 2rem;
+  max-width: 34rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.heroButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 9px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.btnPrimary {
+  border: 1px solid transparent;
+  background: linear-gradient(120deg, var(--ifm-color-primary), var(--kl-accent));
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px -8px rgba(37, 99, 235, 0.55);
+}
+
+.btnGhost {
+  border: 1px solid var(--kl-border);
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+}
+
+.btnGhost:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* ─── Stats ─────────────────────────────────────────────────────────── */
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--kl-border);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat strong {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ifm-heading-color);
+}
+
+.stat span {
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* ─── Sections ──────────────────────────────────────────────────────── */
+
+.section {
+  padding: 4rem 0 0;
+}
+
+.section:last-of-type {
+  padding-bottom: 5rem;
+}
+
+.sectionHead {
+  margin-bottom: 1.75rem;
+}
+
+.sectionTitle {
+  margin: 0 0 0.4rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.sectionDesc {
+  margin: 0;
+  max-width: 46rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* ─── Cards ─────────────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 1.5rem 1.6rem;
+  border: 1px solid var(--kl-border);
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-background-surface-color);
+  color: inherit;
+  overflow: hidden;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Gradient hairline that appears along the top edge on hover. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--kl-accent));
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.card:hover {
+  color: inherit;
+  text-decoration: none;
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 45%, var(--kl-border));
+  box-shadow: 0 12px 28px -18px rgba(15, 23, 42, 0.45);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardMeta {
+  margin-bottom: 0.6rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.cardTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+}
+
+.cardBody {
+  margin: 0;
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.cardArrow {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--ifm-color-primary);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.card:hover .cardArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cardWide {
+  min-height: 190px;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────── */
+
+@media screen and (max-width: 996px) {
+  .hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .stats {
+    gap: 1.75rem;
+    margin-top: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btnPrimary,
+  .btnGhost {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
