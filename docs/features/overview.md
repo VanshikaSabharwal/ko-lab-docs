@@ -19,10 +19,11 @@ every one spans all three. Voice calls, for instance, touch React components,
 API routes and the WebSocket signalling path — splitting that across three
 sections would tell the story three times and completely nowhere.
 
-## The four areas
+## The five areas
 
 | Feature | Layers | Automated tests |
 |---|---|---|
+| **[AI Assistant: "What did I miss?"](./ai-assistant.md)** | Frontend + backend + Groq | Yes — integration tested |
 | **[Groups, chat & notifications](./groups-chat.md)** | All three | Partial |
 | **[Workspace boards](./workspace-boards.md)** | All three | Pure logic only |
 | **[Code editor, VCS & GitHub](./code-editor-vcs.md)** | All three + git service | **None** |
@@ -33,6 +34,7 @@ sections would tell the story three times and completely nowhere.
 ```
 Auth (GitHub OAuth)
   └─ Groups ──────────────┬─ Chat ─────── Notifications
+                          │               └─ AI Assistant (Groq)
                           │
                           ├─ Workspace boards
                           │
@@ -43,6 +45,9 @@ Auth (GitHub OAuth)
 
 Groups are the root. Nothing except authentication works without one, so
 that is the first thing to build when testing any feature by hand.
+
+The AI Assistant queries across groups, tasks, and code changes — so it
+depends on notifications being live and groups being set up.
 
 ## Configuration by feature
 
