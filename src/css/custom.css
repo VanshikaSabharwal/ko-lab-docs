@@ -241,3 +241,94 @@ details {
   border-radius: var(--ifm-global-radius);
   border-color: var(--kl-border) !important;
 }
+
+/* ─── Responsive ────────────────────────────────────────────────────── */
+
+/* Long identifiers, env var names and URLs must wrap rather than push the
+   page sideways. Code blocks keep their own horizontal scroll. */
+.markdown p,
+.markdown li,
+.markdown td {
+  overflow-wrap: anywhere;
+}
+
+/* Embedded demo videos are authored at 560×315; scale them to the column. */
+.markdown iframe,
+.markdown video,
+.markdown img {
+  max-width: 100%;
+}
+
+.markdown iframe {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+@media screen and (max-width: 996px) {
+  :root {
+    --ifm-h1-font-size: 1.9rem;
+    --ifm-h2-font-size: 1.4rem;
+    --ifm-h3-font-size: 1.15rem;
+  }
+
+  .markdown > h2 {
+    margin-top: 2.25rem;
+  }
+
+  /* Wide reference tables (API routes, env vars, data model) scroll inside
+     their own box instead of overflowing the viewport. */
+  .markdown table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .markdown table td {
+    overflow-wrap: normal;
+    min-width: 6rem;
+  }
+
+  /* The last column is almost always the prose description; keep it wide
+     enough to read rather than wrapping a word per line. */
+  .markdown table td:last-child {
+    min-width: 15rem;
+  }
+
+  .markdown table td code {
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --ifm-h1-font-size: 1.65rem;
+    --ifm-h2-font-size: 1.3rem;
+  }
+
+  .markdown table {
+    font-size: 0.85rem;
+  }
+
+  .markdown table th,
+  .markdown table td {
+    padding: 0.55rem 0.7rem;
+  }
+
+  .theme-admonition {
+    padding: 0.85rem 1rem;
+  }
+
+  .pagination-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .pagination-nav__link--next {
+    grid-column: 1;
+  }
+
+  .footer__links {
+    text-align: left;
+  }
+}

@@ -175,7 +175,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 1rem;
 }
 
@@ -268,14 +268,63 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .section {
+    padding-top: 3rem;
+  }
+
+  .section:last-of-type {
+    padding-bottom: 3.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+
+  .cardWide {
+    min-height: 0;
+  }
+
+  /* No hover on touch screens, so show the arrow affordance up front. */
+  .cardArrow {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media screen and (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr;
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .heroTitle {
+    font-size: 2.4rem;
+  }
+
+  .heroSubtitle {
+    margin-bottom: 1.5rem;
   }
 
   .btnPrimary,
   .btnGhost {
     flex: 1 1 auto;
     justify-content: center;
+  }
+
+  /* Four stats wrap unevenly in a row at this width; a 2×2 grid stays tidy. */
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+
+  .stat strong {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 1.15rem 1.2rem 1.3rem;
   }
 }
