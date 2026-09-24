@@ -100,6 +100,15 @@ html {
   background: color-mix(in srgb, var(--ifm-background-color) 88%, transparent);
 }
 
+/* backdrop-filter makes the navbar the containing block for its fixed-position
+   children, which squeezed the mobile menu (.navbar-sidebar, rendered inside
+   the navbar) into the 60px bar. Drop the blur while that menu is open so it
+   can cover the viewport again. */
+.navbar.navbar-sidebar--show {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 .navbar__title {
   font-weight: 700;
   letter-spacing: -0.02em;
